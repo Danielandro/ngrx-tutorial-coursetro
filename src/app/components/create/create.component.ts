@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
 import { Tutorial } from "../../models/tutorial.model";
 import * as TutorialActions from "../../actions/tutorial.action";
-import { Observable } from "rxjs/Observable";
+
 
 @Component({
   selector: 'app-create',
