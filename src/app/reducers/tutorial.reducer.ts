@@ -17,6 +17,8 @@ export function reducer(state: Tutorial[] = [initialState], action: TutorialActi
     // if type = "[TUTORIAL] Add", return [current state + new tutorial]
     case TutorialActions.ADD_TUTORIAL:
       return [...state, action.payload];
+    case TutorialActions.REMOVE_TUTORIAL:
+      return state.filter((tutorial, index) => tutorial !== state[action.payload]);
     // return current state by default if action type doesn't match any cases
     default: return state;
   }
