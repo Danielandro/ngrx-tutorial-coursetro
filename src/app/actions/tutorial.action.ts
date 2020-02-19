@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"; // use to make store globally available
-import { Action } from "@ngrx/store"; // for state management
+import { Action, createAction, props } from "@ngrx/store"; // for state management
 import { Tutorial } from "../models/tutorial.model"; // model for tutorials
 
 // action names
@@ -11,16 +11,28 @@ export const REMOVE_TUTORIAL = "[TUTORIAL] Remove";
 // They are also instatiated with a payload
 // For Add, it'll be a Tutorial i.e. name & url
 // For Remove, it'll be a number (possibly representing an index)
-export class AddTutorial implements Action {
-  readonly type = ADD_TUTORIAL; // requred property of Action
+// export class AddTutorial implements Action {
+//   readonly type = ADD_TUTORIAL; // requred property of Action
 
-  constructor(public payload: Tutorial) { }
-}
+//   constructor(public payload: Tutorial) { }
+// }
 
-export class RemoveTutorial implements Action {
-  readonly type = REMOVE_TUTORIAL;
+// export class RemoveTutorial implements Action {
+//   readonly type = REMOVE_TUTORIAL;
 
-  constructor(public payload: number) { }
-}
+//   constructor(public payload: number) { }
+// }
 
-export type Actions = AddTutorial | RemoveTutorial; // union type. Actions can be either type
+// refactor using createAction()
+export const addTutorial = createAction(
+  ADD_TUTORIAL,
+  props<{ tutorial: Tutorial; }>()
+);
+
+export const removeTutorial = createAction(
+  REMOVE_TUTORIAL,
+  props<{ tutorialIndex: number; }>()
+);
+
+// export type Actions = AddTutorial | RemoveTutorial; // union type. Actions can be either type
+

@@ -20,7 +20,9 @@ export class CreateComponent implements OnInit {
 
   // method to dispatch add tutorial action
   addTutorial(name, url) {
-    this.store.dispatch(new TutorialActions.AddTutorial({ name, url }));
+    const newTutorial = { name, url } as Tutorial;
+    // this.store.dispatch(TutorialActions.addTutorial({ tutorial }));
+    this.store.dispatch(TutorialActions.addTutorial({ tutorial: newTutorial }));
   }
 
 }

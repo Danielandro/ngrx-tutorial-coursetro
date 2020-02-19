@@ -1,7 +1,7 @@
-<div class="right" *ngIf="tutorials">
+<div class="right" *ngIf="tutorials$ | async as tutorials">
   <h3>Tutorials</h3>
   <ul>
-    <li *ngFor="let tutorial of tutorials | async; index as i">
+    <li *ngFor="let tutorial of tutorials; index as i">
       <a target="_blank" rel="noopener noreferrer">
         {{ tutorial.name }}<span (click)="delTutorial(i)" class="delete-btn">x</span>
       </a>
