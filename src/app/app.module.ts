@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { reducer, reducer2 } from "./reducers/tutorial.reducer";
+import { reducer } from "./reducers/tutorial.reducer";
+import { reducerRefactor } from "./reducers/tutorialRefactor.reducer";
 import { AppComponent } from './app.component';
 import { ReadComponent } from './components/read/read.component';
 import { CreateComponent } from './components/create/create.component';
@@ -17,7 +18,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      tutorial: reducer2 // use our reducer as the root reducer for store
+      tutorial: reducerRefactor // use our reducer as the root reducer for store
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

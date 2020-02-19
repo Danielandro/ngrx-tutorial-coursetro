@@ -3,7 +3,8 @@ import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
 import { Tutorial } from "../../models/tutorial.model";
-import * as TutorialActions from "../../actions/tutorial.action";
+// import * as TutorialActions from "../../actions/tutorial.action";
+import * as TutorialActionsRefactor from "../../actions/tutorialRefactor.action";
 
 
 @Component({
@@ -22,7 +23,7 @@ export class CreateComponent implements OnInit {
   addTutorial(name, url) {
     const newTutorial = { name, url } as Tutorial;
     // this.store.dispatch(TutorialActions.addTutorial({ tutorial }));
-    this.store.dispatch(TutorialActions.addTutorial({ tutorial: newTutorial }));
+    this.store.dispatch(TutorialActionsRefactor.addTutorial({ tutorial: newTutorial }));
   }
 
 }
